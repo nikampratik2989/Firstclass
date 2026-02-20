@@ -3,10 +3,22 @@ import { env } from '../../config/env.js';
 import { chunkText } from '../../utils/textChunker.js';
 import { concatWav } from '../../utils/wavConcat.js';
 
+const VOICE_PATTERN = /^[a-z]{2,3}-[A-Z]{2,3}-[A-Za-z0-9]+(?:[A-Za-z0-9-]+)?$/;
+const LANGUAGE_PATTERN = /^[a-z]{2,3}-[A-Z]{2,3}$/;
 
 const ensureAzureConfig = () => {
   if (!env.azureSpeechKey || !env.azureSpeechRegion) {
     throw new Error('Azure Speech is not configured. Set AZURE_SPEECH_KEY and AZURE_SPEECH_REGION in your .env file.');
+  }
+};
+
+const validateVoiceParams = ({ language, voice }) => {
+  if (!LANGUAGE_PATTERN.test(language)) {
+    throw new Error('Invalid language format supplied for Azure TTS.');
+  }
+
+  if (!VOICE_PATTERN.test(voice)) {
+    throw new Error('Invalid voice format supplied for Azure TTS.');
   }
 };
 
@@ -56,6 +68,8 @@ const synthesizeChunk = (ssml) => {
 
 export const synthesize = async ({ text, language, voice, rate, pitch }) => {
   ensureAzureConfig();
+  validateVoiceParams({ language, voice });
+
   const chunks = chunkText(text);
   const audioBuffers = [];
 

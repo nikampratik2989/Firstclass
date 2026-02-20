@@ -112,6 +112,7 @@ Error response (`400`):
 - If backend startup previously failed with `Missing required environment variable: SIGNING_SECRET`, update to the latest code. In development, Speakify now boots with a temporary fallback secret and logs a warning.
 - For actual speech synthesis, you still must set `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION` in `.env`.
 - In production, all required env vars are strictly enforced.
+- Voice and language values are validated server-side before SSML synthesis to reduce malformed/unsafe provider input.
 
 ## Notes for production deployment
 
