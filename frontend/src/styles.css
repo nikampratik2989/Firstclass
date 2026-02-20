@@ -1,0 +1,83 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #0f172a;
+  background: #e2e8f0;
+}
+
+body {
+  margin: 0;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.card {
+  width: min(900px, 100%);
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.subtext { color: #334155; }
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+textarea, select, input[type='range'] {
+  width: 100%;
+  font: inherit;
+}
+
+textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  resize: vertical;
+}
+
+.grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.actions {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+button, .download {
+  border: none;
+  background: #0ea5e9;
+  color: white;
+  padding: 0.65rem 1rem;
+  border-radius: 0.55rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+button:disabled, .download.disabled {
+  background: #94a3b8;
+  pointer-events: none;
+}
+
+audio, progress {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.hint { color: #475569; }
+.error { color: #b91c1c; font-weight: 700; }
