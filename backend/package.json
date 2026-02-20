@@ -1,0 +1,22 @@
+{
+  "name": "speakify-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^7.1.0",
+    "microsoft-cognitiveservices-speech-sdk": "^1.41.0",
+    "morgan": "^1.10.0",
+    "sanitize-html": "^2.13.0",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8"
+  }
+}
